@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rail de Cake</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            text-shadow: 4px 4px #000;
+            margin-bottom: 50px;
+            color: #fdfdfd;
+        }
+
+        /* Le conteneur qui forme le rail */
+        .rail {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            padding: 20px;
+            background: #222;
+            border-top: 5px solid #555;
+            border-bottom: 5px solid #555;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        /* Construction du Gâteau Minecraft */
+        .minecraft-cake {
+            position: relative;
+            min-width: 160px;
+            height: 140px;
+            background: #834f2d; /* Couleur de la base (pain d'épice) */
+            image-rendering: pixelated;
+            border-bottom: 8px solid #5d371f;
+        }
+
+        /* Glaçage blanc */
+        .minecraft-cake::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: #fdfdfd;
+            /* Effet de bordure dentelée du glaçage */
+            box-shadow: 
+                0 10px 0 0 #fdfdfd,
+                10px 20px 0 0 #fdfdfd,
+                -10px 20px 0 0 #fdfdfd,
+                40px 10px 0 0 #fdfdfd,
+                70px 15px 0 0 #fdfdfd,
+                110px 10px 0 0 #fdfdfd,
+                140px 20px 0 0 #fdfdfd;
+        }
+
+        /* Les cerises (points rouges) */
+        .minecraft-cake::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 15px;
+            height: 15px;
+            background: #b51a1a; /* Rouge cerise */
+            /* Multiplication des cerises via box-shadow */
+            box-shadow: 
+                40px 15px 0 0 #b51a1a,
+                80px 5px 0 0 #b51a1a,
+                110px 20px 0 0 #b51a1a,
+                25px 40px 0 0 #b51a1a,
+                75px 45px 0 0 #b51a1a,
+                120px 35px 0 0 #b51a1a;
+        }
+
+        /* Animation pour faire défiler le rail */
+        .rail-inner {
+            display: flex;
+            gap: 20px;
+            animation: scrollRail 10s linear infinite;
+        }
+
+        @keyframes scrollRail {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rail de Cake</h1>
+
+    <div class="rail">
+        <div class="rail-inner">
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+            <div class="minecraft-cake"></div>
+        </div>
+    </div>
+
+</body>
+</html>
